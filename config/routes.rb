@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'forbidden', to: 'top#forbidden'
   get 'internal_server_error', to: 'top#internal_server_error'
 
-  resources :members do
+  resources :members, only: [:index, :show] do
     get 'search', on: :collection
     resources :entries, only: [:index]
   end
@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     end
   end
   namespace :admin do
-    root 'top#index'
+    root to: 'top#index'
+    resources :members do
+      get 'search', on: :collection
+    end
   end
 end
