@@ -3,7 +3,10 @@
 
 
 <% if current_member %>
-  <div class="toolbar"><%= link_to 'ブログ記事の作成', :new_entry %></div>
+  <ul class="toolber">
+    <%= menu_link_to 'ブログ記事の作成', :new_entry %>
+    <%= menu_link_to '投稿した記事', :voted_entries %>
+  </ul>
 <% end %>
 
 

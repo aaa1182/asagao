@@ -51,7 +51,7 @@ class Member < ApplicationRecord
   end
 
   def votable_for?(entry)
-    entry && entry.auther != self && !votes.exists?(entry_id: entry.id)
+    entry && entry.author != self && !votes.exists?(entry_id: entry.id)
   end
 
 
